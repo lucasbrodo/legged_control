@@ -113,7 +113,18 @@ strictness: 0
 start_asap: false
 timeout: 0.0" 
 ```
+Then, lift the robot to the desired CoM height:
 
+```
+rostopic pub -1 /cmd_vel geometry_msgs/Twist "linear:
+  x: 0.0
+  y: 0.0
+  z: 0.2
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0"
+```
 Or, you can start the controller using `rqt_controller_manager` GUI:
 
 ```
@@ -126,6 +137,7 @@ rosrun rqt_controller_manager rqt_controller_manager
 
 ![ezgif-5-684a1e1e23.gif](https://s2.loli.net/2022/07/27/lBzdeRa1gmvwx9C.gif)
 
+6. Use `rosrun rqt_robot_steering rqt_robot_steering`to give simple velocity commands to the robot.
 ### Note
 
 - **THE GAIT AND THE GOAL ARE COMPLETELY DIFFERENT AND SEPARATED!**  You don't need to type stance while the robot is
